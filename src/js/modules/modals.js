@@ -6,28 +6,15 @@ const modals = (state) => {
               windows = document.querySelectorAll('[data-modal]');
 
         trigger.forEach(item => {
-            let event = item.addEventListener('click', (e) => {
+            item.addEventListener('click', (e) => {
+
                 if (e.target) {
                     e.preventDefault();
                 }
-                
-                if (e.target.classList.contains('popup_calc_button')) {
-                    if (!state.height || !state.width) {
-                        event.removeEventlistener();
-                    } 
-                }
 
-                if (e.target.classList.contains('popup_calc_profile_button')) {
-                    if (!state.profile) {
-                        event.removeEventlistener();
-                    }
-
-                }
-    
                 windows.forEach(item => {
                     item.style.display = "none";
                 });
-                
                 modal.style.display = "block";
                 document.body.style.overflow = "hidden";
                 // document.body.classList.add('modal-open');
